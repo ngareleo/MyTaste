@@ -8,7 +8,7 @@ require("dotenv").config();
 
 const auth = require("./server/auth/main.auth");
 const { Cache } = require("./server/cache/main.cache");
-const { sessionConfig, createConnection } = require("./config");
+const { sessionConfig } = require("./config");
 const { ErrorHandler } = require("./server/error/main.error");
 
 // Routers
@@ -17,7 +17,6 @@ const loginRouter = require("./server/routes/login.router");
 const tokenRouter = require("./server/routes/token.router");
 const analyticsRouter = require("./server/routes/analytics.router");
 
-createConnection();
 const errorHandler = new ErrorHandler();
 const app = express();
 const cache = new Cache();
