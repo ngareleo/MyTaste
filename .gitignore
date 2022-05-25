@@ -1,7 +1,3 @@
+.vscode/
 
-# Authorization service
-/microservices/authorization-service/.env
-/microservices/authorization-service/node_modules/
 
-# Django Application
-/microservices/data-operation-service/MusicTastes/MusicTastes/keys.py

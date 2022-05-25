@@ -1,0 +1,3 @@
+venv/
+MusicTastes/db.sqlite3
+MusicTastes/MusicTastes/keys.py
