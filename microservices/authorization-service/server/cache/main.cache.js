@@ -1,5 +1,8 @@
 const Token = require("../models/token.model");
 
+// test every method
+// Make sure the state of the db is the same pre and post tests
+
 class Cache {
   config = async (req, res, next) => {
     // take the code then check it aganist the token

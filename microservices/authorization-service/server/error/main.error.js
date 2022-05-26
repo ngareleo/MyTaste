@@ -1,5 +1,6 @@
 const createError = require("http-errors");
 
+// TODO: Finish error handling
 class ErrorHandler {
   catch404 = (req, res, next) => {
     next(createError(404));

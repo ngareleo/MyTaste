@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
+// TODO: Add validators
 const TokenSchema = new Schema({
   code: {
     type: String,

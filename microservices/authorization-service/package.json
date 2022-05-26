@@ -20,6 +20,7 @@
     "querystring": "^0.2.1"
   },
   "devDependencies": {
+    "mocha": "^10.0.0",
     "nodemon": "^2.0.16"
   }
 }
