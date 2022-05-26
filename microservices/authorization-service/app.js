@@ -15,7 +15,6 @@ const { ErrorHandler } = require("./server/error/main.error");
 const indexRouter = require("./server/routes/index.router");
 const loginRouter = require("./server/routes/login.router");
 const tokenRouter = require("./server/routes/token.router");
-const analyticsRouter = require("./server/routes/analytics.router");
 
 createConnection();
 const errorHandler = new ErrorHandler();
@@ -39,7 +38,6 @@ app.use(auth.isAuthenticated);
 //routers
 app.use(indexRouter);
 app.use(loginRouter);
-app.use(analyticsRouter);
 app.use(tokenRouter);
 
 //error handling

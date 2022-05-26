@@ -44,7 +44,9 @@ router.get("/token", async function (req, res, next) {
       const cache = new Cache();
       req.session.code = code; // store the auth_code
       cache.insert(code, response.data.access_token); // cache the token
-      res.redirect("/analytics");
+      res.json({
+        token: response.data.access_token,
+      });
     } else {
       res.send(response);
     }
