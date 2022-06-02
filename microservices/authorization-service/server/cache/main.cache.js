@@ -2,7 +2,7 @@ const Token = require("../models/token.model");
 
 // test every method
 // Make sure the state of the db is the same pre and post tests
-
+// if the caching module fails the application should continue
 class Cache {
   config = async (req, res, next) => {
     // take the code then check it aganist the token
@@ -19,7 +19,8 @@ class Cache {
       token: token,
     });
     newTokenInstance.save().catch((err) => {
-      next(err);
+      console.log(err);
+      throw Error("Datbase error");
     });
   };
 

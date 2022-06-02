@@ -20,6 +20,7 @@ const queryString = (obj) => {
 };
 
 // Redirect to spotify
+// Done on the presentation layer
 router.get("/login", function (req, res, next) {
   const scope = "user-read-private user-read-email";
   const redirect_uri = `http://localhost:${port_number}/token`;

@@ -43,11 +43,14 @@ router.get("/token", async function (req, res, next) {
     if (response.status === 200) {
       const cache = new Cache();
       req.session.code = code; // store the auth_code
-      cache.insert(code, response.data.access_token); // cache the token
+      cache.insert(code, response.data.access_token);
       res.json({
         token: response.data.access_token,
       });
     } else {
+      // foward the error
+      // the code given is invalid
+      res.status = 401;
       res.send(response);
     }
   }
