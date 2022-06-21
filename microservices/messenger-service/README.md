@@ -1,2 +1,0 @@
-# MyTaste
-Compare spotiy tastes 
