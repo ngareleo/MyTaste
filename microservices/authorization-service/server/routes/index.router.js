@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", function (req, res, next) {
-  res.redirect("/login");
+  res.render("index", { title: "MUSIC TASTES" });
 });
 
 module.exports = router;

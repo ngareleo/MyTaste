@@ -22,8 +22,19 @@ const queryString = (obj) => {
 // Redirect to spotify
 // Done on the presentation layer
 router.get("/login", function (req, res, next) {
-  const scope = "user-read-private user-read-email";
-  const redirect_uri = `http://localhost:${port_number}/token`;
+  const authorizationScopes = [
+    "user-read-recently-played",
+    "user-read-email",
+    "user-top-read",
+    "user-library-read",
+    "user-library-modify",
+    "user-read-private",
+  ];
+  const scope = createAuthorizationScope(authorizationScopes);
+  const requestRedirectURI = req.query.redirect;
+  const redirect_uri =
+    requestRedirectURI || `http://localhost:${port_number}/token`;
+  const external_query = req.query.external || null;
   const queries = queryString({
     response_type: "code",
     client_id: client_id,
@@ -31,8 +42,13 @@ router.get("/login", function (req, res, next) {
     redirect_uri: redirect_uri,
     state: crypto.randomBytes(12).toString("hex"),
   });
-
-  res.redirect(`https://accounts.spotify.com/authorize${queries}`);
+  const spotifyLoginRedirectURI = `https://accounts.spotify.com/authorize${queries}`;
+  res.redirect(spotifyLoginRedirectURI);
 });
 
+const createAuthorizationScope = (permissions) => {
+  let result = "";
+  for (item of permissions) result += `${item} `;
+  return result;
+};
 module.exports = router;

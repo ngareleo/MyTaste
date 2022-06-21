@@ -15,6 +15,7 @@ const { ErrorHandler } = require("./server/error/main.error");
 const indexRouter = require("./server/routes/index.router");
 const loginRouter = require("./server/routes/login.router");
 const tokenRouter = require("./server/routes/token.router");
+const spotifyInteractionRouter = require("./server/routes/spotify.router");
 
 createConnection();
 const errorHandler = new ErrorHandler();
@@ -22,6 +23,8 @@ const app = express();
 const cache = new Cache();
 
 //custom middleware
+
+const routeChecker = require("./server/middleware/route.middleware");
 // view engine setup
 app.set("views", path.join(__dirname, "./server/views"));
 app.set("view engine", "jade");
@@ -32,13 +35,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "/server/public")));
 app.use(session(sessionConfig));
 
-app.use("*", cache.config);
-app.use(auth.isAuthenticated);
-
-//routers
-app.use(indexRouter);
-app.use(loginRouter);
+// @authentication not required
 app.use(tokenRouter);
+app.use(loginRouter);
+
+app.use(auth.isAuthenticated);
+app.use("*", cache.config);
+app.use(routeChecker.revisitRedirectedRoute);
+
+// @authentication required
+app.use(indexRouter);
+app.use(spotifyInteractionRouter);
 
 //error handling
 app.use(errorHandler.catch404);
