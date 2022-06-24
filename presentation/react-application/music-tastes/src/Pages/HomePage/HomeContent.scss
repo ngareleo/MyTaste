@@ -1,0 +1,50 @@
+@import "../../Settings/values.scss";
+
+.pageContentContainer {
+  width: 100%;
+  height: auto;
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.homePageIllustrationContainer {
+  width: 30%;
+  img {
+    width: 100%;
+  }
+}
+
+.homePageContentContainer {
+  width: 32%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+}
+
+.homePageContentContainer * {
+  margin: 10px 0px;
+}
+
+.musicTastesLargeLogoContainer {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 3px solid white;
+}
+
+.musicTastesLargeLogoContainer p {
+  color: white;
+  font-size: 4vw;
+  font-family: $primaryFont;
+  padding: 10px 30px;
+}
+
+#musicTastesWelcomeMessage {
+  font-family: $primaryFont;
+  color: white;
+}

@@ -1,0 +1,49 @@
+:root {
+  --primary-font-size: 15px;
+  --secondary-font-size: 12px;
+}
+@import "../../Settings/values.scss";
+
+.navigationBarContainer {
+  width: 95%;
+  margin: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.musicTastesLogo {
+  height: auto;
+  width: auto;
+  padding: 5px;
+  border-bottom: 2px solid $primaryColor;
+}
+
+#logo-content {
+  font-family: $primaryFont;
+  font-size: $primaryFontSize;
+  color: $primaryColor;
+  font-weight: bold;
+}
+
+.nav-bar-links {
+  width: auto;
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+.nav-bar-links * {
+  margin-right: 20px;
+}
+
+.nav-bar-links:last-child {
+  margin-right: none;
+}
+
+#nav-link-item {
+  text-decoration: none;
+  color: white;
+  font-family: $primaryFont;
+  font-size: $secondaryFontSize;
+}

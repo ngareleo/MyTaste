@@ -1,0 +1,23 @@
+:root {
+  --white: #ffffff;
+}
+
+@import "../../Settings/values.scss";
+
+button {
+  font-family: $primaryFont;
+  padding: 10px 36px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+}
+
+.primary-button {
+  background-color: $primaryColor;
+  color: $secondaryColor;
+}
+
+.secondary-button {
+  color: $secondaryColor;
+  background-color: var(--white);
+}

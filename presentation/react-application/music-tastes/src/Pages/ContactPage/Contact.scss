@@ -1,0 +1,34 @@
+@import "../../Settings/values.scss";
+
+.contactPageContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.contactLinksContainer {
+  width: 20%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contactLinkItemContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+
+.contactLinkItemContainer * {
+  margin: 10px;
+}
+
+#contactLink {
+  text-decoration: none;
+  color: $colorWhite;
+  font-weight: bold;
+}

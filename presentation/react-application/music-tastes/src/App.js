@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from "react";
+import homeBg from "./Static/homeBg.png";
+import Vector1 from "./Static/Vector1.png";
+import "./App.scss";
+import WelcomePage from "./Pages/HomePage/Home";
+import AboutPage from "./Pages/AboutPage/About";
+import ContactPage from "./Pages/ContactPage/Contact";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class HomePage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      imageUrlPath: homeBg,
+      vectorImageUrlPath: Vector1,
+    };
+  }
+  render() {
+    return (
+      <div className="mainAppContainer">
+        <BackgroundGradientImage image={this.state.imageUrlPath} />
+        <BackgroundVector image={this.state.vectorImageUrlPath} />
+        <PagesContainer>
+          <WelcomePage />
+          <AboutPage />
+          <ContactPage />
+        </PagesContainer>
+      </div>
+    );
+  }
 }
 
-export default App;
+class BackgroundGradientImage extends Component {
+  render() {
+    return <img id="bg-gradient-img" src={this.props.image} alt="background" />;
+  }
+}
+
+class BackgroundVector extends Component {
+  render() {
+    return <img id="bg-vector-img" src={this.props.image} alt="Vector" />;
+  }
+}
+
+class PagesContainer extends Component {
+  render() {
+    return <div className="pages-container">{this.props.children}</div>;
+  }
+}
+export default HomePage;
